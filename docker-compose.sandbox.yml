@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  ansible: 
+    build: 
+      context: .
+      dockerfile: ansible-ubuntu.Dockerfile
+      target: base
+    volumes:
+      - .:/usr/local/bin
+    container_name: ansible-playground
+    command: ansible-playbook tomato.yml
